@@ -1,0 +1,15 @@
+apiVersion: v1beta3
+kind: Service
+metadata:
+  name: openkms
+  namespace: default
+  labels:
+    app: openkms
+spec:
+  selector:
+    app: openkms
+  ports:
+  - name: web
+    targetPort: 8080
+    port: 80
+    protocol: TCP

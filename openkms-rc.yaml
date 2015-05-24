@@ -1,0 +1,23 @@
+apiVersion: v1beta3
+kind: ReplicationController
+metadata:
+  name: openkms
+  namespace: default
+  labels:
+    app: openkms
+spec:
+  replicas: 1
+  selector:
+    app: openkms
+  template:
+    metadata:
+      labels:
+        app: openkms
+    spec:
+      containers:
+      - name: openkms
+        image: mcsaky/openkm
+        ports:
+        - containerPort: 8080
+          name: dns
+          protocol: TCP
